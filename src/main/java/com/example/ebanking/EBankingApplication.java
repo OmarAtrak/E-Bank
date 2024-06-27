@@ -1,24 +1,18 @@
 package com.example.ebanking;
 
-import com.example.ebanking.entities.*;
-import com.example.ebanking.enums.AccountStatus;
-import com.example.ebanking.enums.OperationType;
+import com.example.ebanking.dtos.CustomerDTO;
+import com.example.ebanking.entities.BankAccount;
+import com.example.ebanking.entities.Customer;
 import com.example.ebanking.exception.BalanceNotSufficientException;
 import com.example.ebanking.exception.BankAccountNotFoundException;
 import com.example.ebanking.exception.CustomerNotFoundException;
-import com.example.ebanking.repositories.AccountOperationRepository;
-import com.example.ebanking.repositories.BankAccountRepository;
-import com.example.ebanking.repositories.CustomerRepository;
 import com.example.ebanking.services.BankAccountServiceImpl;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Stream;
+
 
 @SpringBootApplication
 public class EBankingApplication {
@@ -28,10 +22,10 @@ public class EBankingApplication {
     }
 
     // @Bean
-//    CommandLineRunner commandLineRunner(BankAccountServiceImpl bankAccountService) {
+//    EBankingApplication commandLineRunner(BankAccountServiceImpl bankAccountService) {
 //        return args -> {
 //            Stream.of("Hassan", "Imane", "Mohamed").forEach(name -> {
-//                Customer customer = new Customer();
+//                CustomerDTO customer = new CustomerDTO();
 //                customer.setName(name);
 //                customer.setEmail(name + "@gmail.com");
 //                bankAccountService.saveCustomer(customer);
@@ -39,7 +33,7 @@ public class EBankingApplication {
 //
 //            bankAccountService.getAllCustomer().forEach(customer -> {
 //                try {
-//                    bankAccountService.saveCurrentBankAccount(Math.random() * 5000, 9000, customer.getId());
+//                    bankAccountService.saveSavingBankAccount(Math.random() * 5000, 9000, customer.getId());
 //                    bankAccountService.saveSavingBankAccount(Math.random() * 7000, 5.5, customer.getId());
 //
 //                    List<BankAccount> bankAccounts = bankAccountService.getAllBankAccount();
@@ -59,8 +53,8 @@ public class EBankingApplication {
 //            });
 //        };
 //    }
-
-    // @Bean
+//
+//    // @Bean
 //    CommandLineRunner start(
 //            CustomerRepository customerRepository,
 //            BankAccountRepository bankAccountRepository,
@@ -115,3 +109,4 @@ public class EBankingApplication {
 //        };
 //    }
 }
+

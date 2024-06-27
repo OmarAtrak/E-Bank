@@ -2,6 +2,7 @@ package com.example.ebanking.web;
 
 import com.example.ebanking.dtos.CustomerDTO;
 import com.example.ebanking.exception.CustomerNotFoundException;
+import com.example.ebanking.mappers.BankAccountMapperImpl;
 import com.example.ebanking.services.BankAccountServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import java.util.List;
 @Slf4j
 public class CustomerResource {
     private BankAccountServiceImpl bankAccountService;
+    private BankAccountMapperImpl bankAccountMapper;
 
     @GetMapping("index")
     public List<CustomerDTO> index() {
@@ -28,6 +30,7 @@ public class CustomerResource {
 
     @PostMapping("save")
     public CustomerDTO save(@RequestBody CustomerDTO customerDTO) {
+        System.out.println(customerDTO);
         return this.bankAccountService.saveCustomer(customerDTO);
     }
 }

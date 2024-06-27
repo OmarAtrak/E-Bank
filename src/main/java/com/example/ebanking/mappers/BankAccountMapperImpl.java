@@ -24,16 +24,21 @@ public class BankAccountMapperImpl {
         return customerDTO;
     }
     public Customer fromCustomerDTO(CustomerDTO customerDTO) {
+
+
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDTO, customer);
-        if(customerDTO.getBankAccounts() != null) {
-            List<BankAccount> bankAccounts = new ArrayList<>();
-            customerDTO.getBankAccounts().forEach(bankAccountDTO -> {
-                BankAccount bankAccount = this.fromBankAccountDTO(bankAccountDTO);
-                bankAccounts.add(bankAccount);
-            });
-            customer.setBankAccounts(bankAccounts);
-        }
+//        if(customerDTO.getBankAccounts() != null) {
+//            System.out.println(customerDTO.getBankAccounts());
+//            List<BankAccount> bankAccounts = new ArrayList<>();
+//            customerDTO.getBankAccounts().forEach(bankAccountDTO -> {
+//                BankAccount bankAccount = this.fromBankAccountDTO(bankAccountDTO);
+//                bankAccounts.add(bankAccount);
+//            });
+//            customer.setBankAccounts(bankAccounts);
+//        }
+
+
         return customer;
     }
 
